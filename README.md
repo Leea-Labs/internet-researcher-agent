@@ -1,1 +1,2 @@
-# internet-researcher-agent
+# Internet Researcher Agent
+

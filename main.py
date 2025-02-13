@@ -1,11 +1,10 @@
 import json
-import os
 import tempfile
-from tempfile import mktemp
 
 from dotenv import load_dotenv
 from gpt_researcher import GPTResearcher
 from gpt_researcher.utils.enum import Tone, ReportType
+from leea_agent_sdk.context import ExecutionContext
 from pydantic import BaseModel, Field
 from typing import Type
 import leea_agent_sdk.runtime as leea
@@ -30,7 +29,7 @@ class InternetResearcher(Agent):
     input_schema: Type[BaseModel] = Input
     output_schema: Type[BaseModel] = Output
 
-    async def run(self, request_id: str, input: Input):
+    async def run(self, context: ExecutionContext, input: Input):
         with tempfile.NamedTemporaryFile(suffix=".json") as config:
             config.write(json.dumps({
                 'LANGUAGE': input.language,
