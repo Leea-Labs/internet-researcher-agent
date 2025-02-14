@@ -24,7 +24,7 @@ class Output(BaseModel):
 
 
 class InternetResearcher(Agent):
-    name: str = "Internet researcher"
+    name: str = "internet-researcher"
     description: str = "Makes internet researches"
     input_schema: Type[BaseModel] = Input
     output_schema: Type[BaseModel] = Output
